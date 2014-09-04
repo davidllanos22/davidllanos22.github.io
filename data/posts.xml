@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<posts>
+		<post>
+				asdasds
+				<title>
+						Title 01
+				</title>
+				<content>
+						Testing the content of the post in a xml file.
+				</content>
+				<tags>
+						<tag>one</tag>
+						<tag>two</tag>
+				</tags>
+	</post>
+</posts>
