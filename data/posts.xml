@@ -1,16 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <posts>
-		<post>
-				asdasds
-				<title>
-						Title 01
-				</title>
-				<content>
-						Testing the content of the post in a xml file.
-				</content>
-				<tags>
-						<tag>one</tag>
-						<tag>two</tag>
-				</tags>
+	<post>
+		<title>Title 03</title>
+		<date>September 5th, 2014 </date>
+		<content>
+			Testing the content of the post in a xml file.
+		</content>
+		<tags>
+			<tag>webdev</tag>
+			<tag>github</tag>
+		</tags>
+		
+	</post>
+	<post>
+		<title>Title 02</title>
+		<date>September 5th, 2014 </date>
+		<content>
+			Testing the content of the post in a xml file.
+		</content>
+		<tags>
+			<tag>tutorial</tag>
+			<tag>gamedev</tag>
+		</tags>
+		
+	</post>
+	<post>
+		<title>Title 01</title>
+		<date>September 5th, 2014 </date>
+		<content>
+			Testing the content of the post in a xml file.
+		</content>
+		<tags>
+			<tag>gamedev</tag>
+			<tag>pixelart</tag>
+		</tags>
+		
 	</post>
 </posts>
