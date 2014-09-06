@@ -48,14 +48,27 @@ a:hover{
 }
 
 #header{
+	width:400px;
+	margin: 0 auto;
 	padding: 20px 0;	
 }
 
 #header #title{
+	margin-top:8px;
 	color: #FFF;
 }
 
+#portrait{
+	margin:0 12px;
+	float:left;
+}
+
+#portrait img{
+	border-radius:36px;
+}
 #media{
+	width:120px;
+	margin:0 auto;
 	padding-top: 20px;
 }
 
@@ -69,6 +82,11 @@ a:hover{
 
 #media li:hover{
 	opacity: 1.0;
+}
+
+#working-on{
+	margin-top:20px;
+	text-align:center;
 }
 
 #content{
