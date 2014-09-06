@@ -8,11 +8,12 @@ html{
 }
 
 body{
-	background-image: url("../media/bg3.png");
+	background-image: url("../media/bg.png");
 	background-repeat: repeat-x;
 	background-position: top left;
-	background-attachment: fixed;
-	background-color: #3c5692;
+	/*background-attachment: fixed;*/
+	background-color:#666 ;
+	background-color:#3c5692 ;
 	color: #555;
 	height: 100%;
 }
@@ -36,13 +37,14 @@ a:hover{
 }
 
 #container{
-	max-width: 700px;
+	max-width: 980px;
 	background-color: #181818;
 	margin-right: auto;
 	margin-left: auto;
 	padding-left: 15px;
 	padding-right: 15px;
 	min-height:100%;
+	opacity: 0.95;
 }
 
 #header{

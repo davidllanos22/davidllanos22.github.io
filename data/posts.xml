@@ -4,7 +4,7 @@
 		<title>Title 03</title>
 		<date>September 5th, 2014 </date>
 		<content>
-			Testing the content of the post in a xml file.
+			Testing the content of the post from a xml file.
 		</content>
 		<tags>
 			<tag>webdev</tag>
@@ -16,7 +16,7 @@
 		<title>Title 02</title>
 		<date>September 5th, 2014 </date>
 		<content>
-			Testing the content of the post in a xml file.
+			Testing the content of the post from a xml file.
 		</content>
 		<tags>
 			<tag>tutorial</tag>
@@ -28,7 +28,7 @@
 		<title>Title 01</title>
 		<date>September 5th, 2014 </date>
 		<content>
-			Testing the content of the post in a xml file.
+			Testing the content of the post from a xml file.
 		</content>
 		<tags>
 			<tag>gamedev</tag>
