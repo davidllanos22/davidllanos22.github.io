@@ -5,6 +5,7 @@
 		<date>September 5th, 2014 </date>
 		<content>
 			Testing the content of the post from a xml file.
+			&lt;i&gt;dasdasdasd&lt;/i&gt;
 		</content>
 		<tags>
 			<tag>webdev</tag>
@@ -17,6 +18,7 @@
 		<date>September 5th, 2014 </date>
 		<content>
 			Testing the content of the post from a xml file.
+			&lt;img src="media/davidllanos.png"&gt;&lt;/img&gt;
 		</content>
 		<tags>
 			<tag>tutorial</tag>

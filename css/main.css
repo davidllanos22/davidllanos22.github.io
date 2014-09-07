@@ -92,7 +92,22 @@ a:hover{
 	height:100%;
 }
 
+#projects{
+	height:500px;
+	width:24%;
+	margin: 15px 0;
+	color:#FFF;
+	background-color: #1E1E1E;
+	border-radius: 5px;
+	padding: 10px;
+	float:right;
+}
+#projects h2{
+	text-align:center;
+}
+
 .post{
+	width:70%;
 	margin: 20px 0;
 	color:#FFF;
 	background-color: #1E1E1E;
@@ -125,8 +140,9 @@ a:hover{
 }
 
 #footer{
+	width:100%;
 	text-align: center;
-	padding:20px 0;
+	padding:40px 0;
 }
 
 .green {
@@ -149,15 +165,11 @@ a:hover{
     background: #687F7F;
 }
 
-/*@media (min-width: 1200px)*/
-/*.container {*/
-/*width: 1170px;*/
-/*}*/
-/*@media (min-width: 768px)*/
-/*.container {*/
-/*width: 750px;*/
-/*}*/
-/*@media (min-width: 992px)*/
-/*.container {*/
-/*width: 970px;*/
-/*}*/
+@media(max-width: 768px){
+	#projects {
+		display:none;
+	}
+	.post{
+		width:96%;
+	}
+}
