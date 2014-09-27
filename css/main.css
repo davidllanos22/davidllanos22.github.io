@@ -93,6 +93,7 @@ a:hover{
 }
 
 #projects{
+	display:none;
 	height:500px;
 	width:24%;
 	margin: 15px 0;
@@ -107,8 +108,8 @@ a:hover{
 }
 
 .post{
-	width:70%;
-	margin: 20px 0;
+	width:80%;
+	margin: 20px auto;
 	color:#FFF;
 	background-color: #1E1E1E;
 	border-radius: 5px;

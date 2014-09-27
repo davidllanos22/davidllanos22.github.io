@@ -7,11 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--<link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">-->
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="js/main.js"></script>
+	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+	<script src="js/angular.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/loadPosts.js"></script>
 	<title>David Llanos</title>
 </head>
-<body>
+<body ng-app="davidApp">
 <div id="container">
     <header id="header">
 		<section id="portrait">
@@ -35,7 +37,13 @@
 			Recent Posts<hr>
 			<section id="projects">
 				<h2>Projects</h2>
-				
+				<ul>
+					<li>Project Name</li>
+					<li>Project Name</li>
+					<li>Project Name</li>
+					<li>Project Name</li>
+					<li>Project Name</li>
+				</ul>	
 			</section>
       
     </section>
