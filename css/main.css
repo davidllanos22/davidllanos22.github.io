@@ -90,22 +90,53 @@ a:hover{
 
 #content{
 	height:100%;
+
 }
 
 #projects{
-	display:none;
-	height:500px;
-	width:24%;
-	margin: 15px 0;
+	margin: 0 auto;
+	width:90%;
+
 	color:#FFF;
 	background-color: #1E1E1E;
 	border-radius: 5px;
-	padding: 10px;
-	float:right;
+	padding: 10px 10px 10px 10px;
 }
+#projects ul{
+	text-align: center;
+	width:100%;
+	margin: 0 auto;
+}
+#projects li{
+	margin: 0 auto;
+	display: inline-block;
+	text-decoration: none;
+	list-style: none;
+	margin: 0px 20px 20px 0;
+}
+#projects div{
+	width:256px;
+	height:256px;
+	background-color: #ccc;
+	border-radius: 2px;
+	border:1px solid #fff;
+}
+#title,#description{
+	text-align: left;
+}
+#title{
+	margin-top: 5px;
+	font-size: 20px;
+}
+#description{
+	color:#FFF;
+	font-size: 12px;
+}
+
 #projects h2{
-	text-align:center;
+	margin-bottom: 20px;
 }
+
 
 .post{
 	width:80%;
@@ -131,7 +162,7 @@ a:hover{
 }
 
 .post-tags li{
-	display: inline;
+	display: inline-block;
 	margin: 0.5em 0.1em;
 	padding: 0.3em 0.5em;
 	color: #fff;
@@ -168,7 +199,7 @@ a:hover{
 
 @media(max-width: 768px){
 	#projects {
-		display:none;
+		//display:none;
 	}
 	.post{
 		width:96%;
