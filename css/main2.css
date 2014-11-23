@@ -8,7 +8,7 @@ html{
 }
 
 body{
-	background-image: url("../media/bg.png");
+	//background-image: url("../media/bg.png");
 	background-repeat: repeat-x;
 	background-position: top left;
 	/*background-attachment: fixed;*/
