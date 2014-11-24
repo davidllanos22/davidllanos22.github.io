@@ -108,6 +108,7 @@ a:hover{
 	margin: 0 auto;
 }
 #projects li{
+	width:256px;
 	margin: 0 auto;
 	display: inline-block;
 	text-decoration: none;
