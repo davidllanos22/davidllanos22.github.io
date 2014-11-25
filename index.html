@@ -34,38 +34,43 @@
     </header>
 
     <section id="content">
-			<section id="projects">
+			<section id="projectList">
 				<h2>Projects</h2>
 				<ul>
 					<li>
-						<a href="http://ludumdare.com/compo/ludum-dare-29/?action=preview&uid=10692" target="_blank">
+
+						<a class="project" href="http://ludumdare.com/compo/ludum-dare-29/?action=preview&uid=10692" target="_blank">
+							<img class="whiteCover" src="media/white.png">
 							<div style="background: url('media/projects/04.png');">
 							</div>
-							<p id="title">Cave Beneath the Surface</p>
-							<p id="description">A game made for Ludum Dare 29.</p>
+							<p class="title">Cave Beneath the Surface</p>
+							<p class="description">A game made for Ludum Dare 29.</p>
 						</a>
 					</li>
 					<li>
-						<a href="http://ludumdare.com/compo/ludum-dare-28/?action=preview&uid=10692" target="_blank">
+						<a class="project" href="http://ludumdare.com/compo/ludum-dare-28/?action=preview&uid=10692" target="_blank">
+							<img class="whiteCover" src="media/white.png">
 							<div style="background: url('media/projects/03.png');">
 							</div>
-							<p id="title">Balloon</p>
-							<p id="description">A game made for Ludum Dare 28.</p>
+							<p class="title">Balloon</p>
+							<p class="description">A game made for Ludum Dare 28.</p>
 						</a>
 					</li>
 					<li>
-						<a href="http://ludumdare.com/compo/ludum-dare-24/?action=preview&uid=10692" target="_blank">
+						<a class="project" href="http://ludumdare.com/compo/ludum-dare-24/?action=preview&uid=10692" target="_blank">
+							<img class="whiteCover" src="media/white.png">
 							<div style="background: url('media/projects/02.png');">
 							</div>
-							<p id="title">Caveman Evolution</p>
-							<p id="description">A game made for Ludum Dare 24.</p>
+							<p class="title">Caveman Evolution</p>
+							<p class="description">A game made for Ludum Dare 24.</p>
 						</a>
 					</li>
 					<li>
-						<a href="http://ludumdare.com/compo/minild-34/?action=preview&uid=10692" target="_blank">
+						<a class="project" href="http://ludumdare.com/compo/minild-34/?action=preview&uid=10692" target="_blank">
+							<img class="whiteCover" src="media/white.png">
 							<div style="background: url('media/projects/01.png');"></div>
-							<p id="title">Zombie Dungeon</p>
-							<p id="description">A game made for mini Ludum Dare 34.</p>
+							<p class="title">Zombie Dungeon</p>
+							<p class="description">A game made for mini Ludum Dare 34.</p>
 						</a>
 					</li>
 					
@@ -80,5 +85,14 @@
     </footer>
 
 </div>
+<script>
+
+			$('.project').hover(function(){
+				$(this).find('.whiteCover').stop(true, true).fadeTo(300, 0.5);
+			}, function(){
+				$(this).find('.whiteCover').stop(true, true).fadeTo(200, 0);
+			});
+		
+</script>
   </body>
 </html>
