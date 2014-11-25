@@ -108,6 +108,7 @@ a:hover{
 	margin: 0 auto;
 }
 #projectList li{
+	vertical-align:top;
 	position:relative;
 	width:256px;
 	margin: 0 auto;
@@ -126,6 +127,7 @@ a:hover{
 .title,.description{
 	text-align: left;
 }
+
 .title{
 	margin-top: 5px;
 	font-size: 20px;
