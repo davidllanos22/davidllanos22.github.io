@@ -2,18 +2,22 @@
 	margin: 0;
 	padding: 0;
 }
+@font-face {
+  font-family: "font";
+  src: url("../media/squaredance10.ttf");
+}
 html{
 	height: 100%;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: font;
 }
 
 body{
-	//background-image: url("../media/bg.png");
+	/*background-image: url("../media/bgloop.png");
 	background-repeat: repeat-x;
-	background-position: top left;
-	/*background-attachment: fixed;*/
-	background-color:#666 ;
-	background-color:#3c5692 ;
+	background-position: bottom left;
+	background-attachment: fixed;
+	background-color:#666 ;*/
+	background-color:#5090E8 ;
 	color: #555;
 	height: 100%;
 }
@@ -44,7 +48,7 @@ a:hover{
 	padding-left: 15px;
 	padding-right: 15px;
 	min-height:100%;
-	opacity: 0.95;
+	opacity: 0.99;
 }
 
 #header{
