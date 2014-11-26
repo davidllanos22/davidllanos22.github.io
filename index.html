@@ -2,15 +2,10 @@
 <html>
 <head> 
     <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Davidllanos22.github.io : ">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--<link rel="stylesheet" type="text/css" media="screen" href="css/stylesheet.css">-->
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-	<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
 	<link rel="icon" type="img/ico" href="media/favicon.ico">
 	<script src="js/jquery.min.js"></script>
-	<!--<script src="js/loadPosts.js"></script>-->
 	<title>David Llanos</title>
 </head>
 <body>
@@ -34,59 +29,45 @@
     </header>
 
     <section id="content">
-			<section id="projectList">
-				<h2>Projects</h2>
-				<ul>
-					<li>
-
-						<a class="project" href="http://globalgamejam.org/2014/games/dragon-vs-princess" target="_blank">
-							<img class="whiteCover" src="media/white.png">
-							<div style="background: url('media/projects/05.png');">
-							</div>
-							<p class="title">Dragon vs Princess</p>
-							<p class="description">A game made for Global Game Jam 2014.</p>
-						</a>
-					</li>
-					<li>
-
-						<a class="project" href="http://ludumdare.com/compo/ludum-dare-29/?action=preview&uid=10692" target="_blank">
-							<img class="whiteCover" src="media/white.png">
-							<div style="background: url('media/projects/04.png');">
-							</div>
-							<p class="title">Cave Beneath the Surface</p>
-							<p class="description">A game made for Ludum Dare 29.</p>
-						</a>
-					</li>
-					<li>
-						<a class="project" href="http://ludumdare.com/compo/ludum-dare-28/?action=preview&uid=10692" target="_blank">
-							<img class="whiteCover" src="media/white.png">
-							<div style="background: url('media/projects/03.png');">
-							</div>
-							<p class="title">Balloon</p>
-							<p class="description">A game made for Ludum Dare 28.</p>
-						</a>
-					</li>
-					<li>
-						<a class="project" href="http://ludumdare.com/compo/ludum-dare-24/?action=preview&uid=10692" target="_blank">
-							<img class="whiteCover" src="media/white.png">
-							<div style="background: url('media/projects/02.png');">
-							</div>
-							<p class="title">Caveman Evolution</p>
-							<p class="description">A game made for Ludum Dare 24.</p>
-						</a>
-					</li>
-					<li>
-						<a class="project" href="http://ludumdare.com/compo/minild-34/?action=preview&uid=10692" target="_blank">
-							<img class="whiteCover" src="media/white.png">
-							<div style="background: url('media/projects/01.png');"></div>
-							<p class="title">Zombie Dungeon</p>
-							<p class="description">A game made for mini Ludum Dare 34.</p>
-						</a>
-					</li>
-					
-					
-					
-				</ul>	
+			<section id="section-projects">
+				<div id="projects-list">
+					<h2>Projects</h2>
+					<div class="project project-id-5">
+						<div class="project-img-container">
+							<div class="project-img" style="background: url('media/projects/05.png');"></div>
+						</div>
+						<p class="project-title">Dragon vs Princess</p>
+						<p class="project-description">A game made for Global Game Jam 2014.</p>
+					</div>
+					<div class="project project-id-4">
+						<div class="project-img-container">
+							<div class="project-img" style="background: url('media/projects/04.png');"></div>
+						</div>
+						<p class="project-title">Cave Beneath the Surface</p>
+						<p class="project-description">A game made for Ludum Dare 29.</p>
+					</div>
+					<div class="project project-id-3">
+						<div class="project-img-container">
+							<div class="project-img" style="background: url('media/projects/03.png');"></div>
+						</div>
+						<p class="project-title">Balloon</p>
+						<p class="project-description">A game made for Ludum Dare 28.</p>
+					</div>
+					<div class="project project-id-2">
+						<div class="project-img-container">
+							<div class="project-img" style="background: url('media/projects/02.png');"></div>
+						</div>
+						<p class="project-title">Caveman Evolution</p>
+						<p class="project-description">A game made for Ludum Dare 24.</p>
+					</div>
+					<div class="project project-id-1">
+						<div class="project-img-container">
+							<div class="project-img" style="background: url('media/projects/01.png');"></div>
+						</div>
+						<p class="project-title">Zombie Dungeon</p>
+						<p class="project-description">A game made for mini Ludum Dare 34.</p>
+					</div>
+				</div>
 			</section>
       
     </section>
@@ -96,13 +77,61 @@
 
 </div>
 <script>
-
 			$('.project').hover(function(){
-				$(this).find('.whiteCover').stop(true, true).fadeTo(300, 0.3);
+				$(this).css( 'cursor', 'pointer' );
+				$(this).find('.project-img').stop(true, true).fadeTo(300, 0.5);
 			}, function(){
-				$(this).find('.whiteCover').stop(true, true).fadeTo(200, 0);
+				$(this).css( 'cursor', 'default' );
+				$(this).find('.project-img').stop(true, true).fadeTo(200, 1);
 			});
-		
+
+			$('.project-id-1').click(function(){
+				window.open("http://ludumdare.com/compo/minild-34/?action=preview&uid=10692", '_blank');
+			});
+			$('.project-id-2').click(function(){
+				window.open("http://ludumdare.com/compo/ludum-dare-24/?action=preview&uid=10692", '_blank');
+			});
+			$('.project-id-3').click(function(){
+				window.open("http://ludumdare.com/compo/ludum-dare-28/?action=preview&uid=10692", '_blank');
+			});
+			$('.project-id-4').click(function(){
+				window.open("http://ludumdare.com/compo/ludum-dare-29/?action=preview&uid=10692", '_blank');
+			});
+			$('.project-id-5').click(function(){
+				window.open("http://globalgamejam.org/2014/games/dragon-vs-princess", '_blank');
+			});
+
+			/*
+
+			//need to save this snippet for the tags implementation
+					var title = $(this).find("title").text();
+					var content = $(this).find("content").text();
+					var date = $(this).find("date").text();
+					
+					output +='<div class="post">';
+					output +='<h2 class="post-title"><a href="#">'+title+'</a></h2>';
+					output +='<p class="post-date">'+date+'</p>';
+					output +='<p class="post-content">'+content+'</p>';
+					output +='<ul class="post-tags">';
+					
+					var tags = $(this).find("tags");
+
+					$(tags).find("tag").each(function(){
+						var color = "gray";
+						if($(this).text()=="gamedev"){
+							color = "purple" 
+						}else if($(this).text()=="webdev"){
+							color = "blue" 
+						}else if($(this).text()=="pixelart"){
+							color = "red" 
+						}else if($(this).text()=="tutorial"){
+							color = "green" 
+						}
+						output +='<li class="'+color+'">'+$(this).text()+'</li>';
+					});
+					
+					output += '</ul></div>';
+			*/
 </script>
   </body>
 </html>
