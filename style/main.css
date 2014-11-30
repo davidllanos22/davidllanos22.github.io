@@ -8,7 +8,7 @@
 }
 html{
 	height: 100%;
-	font-family: font;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 body{
@@ -142,6 +142,14 @@ div.project {
 .project-description{
 	color: #555;
 }
+.project-tags li{
+	display: inline-block;
+	margin: 0.5em 0.1em;
+	padding: 0.3em 0.5em;
+	color: #fff;
+	/*background: #999;*/
+	font-size: 80%;
+}
 .post{
 	width:80%;
 	margin: 20px auto;
@@ -172,7 +180,6 @@ div.project {
 	color: #fff;
 	/*background: #999;*/
 	font-size: 80%;
-	display: inline-block;
 }
 
 #footer{
