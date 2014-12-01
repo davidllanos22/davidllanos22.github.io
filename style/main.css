@@ -2,10 +2,7 @@
 	margin: 0;
 	padding: 0;
 }
-@font-face {
-  font-family: "font";
-  src: url("../media/retro.ttf");
-}
+
 html{
 	height: 100%;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
@@ -52,12 +49,10 @@ a:hover{
 }
 
 #header{
-	
 	padding: 20px 0;	
 }
 
 #header #title{
-	margin-top:8px;
 	color: #FFF;
 }
 
@@ -67,8 +62,9 @@ a:hover{
 }
 
 #portrait img{
-	border-radius:36px;
+	border-radius:6px;
 }
+
 #media{
 	width:120px;
 	margin:0 auto;
@@ -79,6 +75,7 @@ a:hover{
 	display: inline;
 	opacity: 0.8;
 }
+
 #media img{
 	width:32px;
 }
@@ -96,6 +93,7 @@ a:hover{
 	height:100%;
 
 }
+
 #section-projects{
 	margin: 0 auto;
 	width:90%;
@@ -105,21 +103,25 @@ a:hover{
 	padding: 10px 10px 10px 10px;
 	text-align: center;
 }
+
 #projects-list {
 	text-align: center;
 	width:100%;
 	margin: 0 auto;
 }
+
 #projects-list h2{
 	margin-bottom: 20px;
 	text-align: left;
 }
+
 div.project {
 	width:256px;
 	vertical-align:top;
 	display: inline-block;
 	margin: 0px 20px 40px 0;
 }
+
 .project-img-container{
 	border-radius: 2px;
 	border:1px solid #fff;
@@ -127,21 +129,26 @@ div.project {
 	width: 256px;
 	height: 256px;
 }
+
 .project-img{
 	width: 256px;
 	height: 256px;
 }
+
 .project-title,.project-description{
 	text-align: left;
 }
+
 .project-title{
 	color: #5090E8;
 	margin-top: 5px;
 	font-size: 20px;
 }
+
 .project-description{
 	color: #555;
 }
+
 .project-tags li{
 	display: inline-block;
 	margin: 0.5em 0.1em;
@@ -150,6 +157,7 @@ div.project {
 	/*background: #999;*/
 	font-size: 80%;
 }
+
 .post{
 	width:80%;
 	margin: 20px auto;
@@ -206,13 +214,4 @@ div.project {
 
 .gray {
     background: #687F7F;
-}
-
-@media(max-width: 768px){
-	#projects {
-		//display:none;
-	}
-	.post{
-		width:96%;
-	}
 }
