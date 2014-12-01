@@ -14,7 +14,7 @@ body{
 	background-position: bottom left;
 	background-attachment: fixed;
 	background-color:#666 ;*/
-	background-color:#5090E8 ;
+	background-color:#3b7bb3 ;
 	color: #555;
 	height: 100%;
 }
@@ -214,4 +214,21 @@ div.project {
 
 .gray {
     background: #687F7F;
+}
+
+@media (max-width: 450px) {
+	#portrait{
+		width:82px;
+		margin:0 auto;
+		float:none;
+	}
+
+   	#title{
+    	margin-top: 10px;
+    	text-align: center;
+  	}
+
+  	#tagline{
+    	text-align: center;
+  	}
 }
