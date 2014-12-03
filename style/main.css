@@ -65,10 +65,26 @@ a:hover{
 	border-radius:6px;
 }
 
+#main-nav{
+	margin-top: 10px;
+	text-align: center;
+}
+
+#main-nav li{
+	list-style: none;
+	display: inline;
+	padding-left: 10px;
+	font-size: 20px;
+}
+
 #media{
-	width:120px;
+	width:105px;
 	margin:0 auto;
 	padding-top: 20px;
+}
+
+#media ul{
+
 }
 
 #media li{
@@ -93,6 +109,24 @@ a:hover{
 	height:100%;
 
 }
+#section-about{
+	margin: 0 auto;
+	width:90%;
+	color:#999;
+	background-color: #1E1E1E;
+	border-radius: 5px;
+	padding: 10px 10px 40px 10px;
+}
+
+#section-about h2{
+	color:#FFF;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+#section-about h3{
+	margin: 10px 0;
+}
 
 #section-projects{
 	margin: 0 auto;
@@ -112,7 +146,6 @@ a:hover{
 
 #projects-list h2{
 	margin-bottom: 20px;
-	text-align: left;
 }
 
 div.project {
