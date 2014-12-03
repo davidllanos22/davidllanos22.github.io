@@ -8,8 +8,8 @@ app.controller("about",function($scope){
 	$scope.title = "About";
 });
 
-app.config(['$routeProvider',
-  	function($routeProvider) {
+app.config(['$routeProvider', '$locationProvider',
+  	function($routeProvider, $locationProvider) {
 	    $routeProvider
 	    	.when('/', {
                 templateUrl : 'pages/projects.html',
@@ -27,4 +27,6 @@ app.config(['$routeProvider',
 	      	.otherwise({
 	        	redirectTo: '/'
 	      	});
+
+	      	$locationProvider.html5Mode(true);
  }]);
