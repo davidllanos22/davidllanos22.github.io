@@ -18,7 +18,6 @@ app.config(['$routeProvider', '$locationProvider',
 	    	.when('/about', {
 	        	templateUrl: 'pages/about.html',
 	        	controller: 'about',
-	        	lala: "pene"
 	     	})
 	      	.when('/projects', {
 	        	templateUrl: 'pages/projects.html',
@@ -28,5 +27,5 @@ app.config(['$routeProvider', '$locationProvider',
 	        	redirectTo: '/'
 	      	});
 
-	      	$locationProvider.html5Mode(true);
+	      	//$locationProvider.html5Mode(true);
  }]);
