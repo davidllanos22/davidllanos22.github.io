@@ -78,7 +78,7 @@ a:hover{
 }
 
 #media{
-	width:105px;
+	width:145px;
 	margin:0 auto;
 	padding-top: 20px;
 }
@@ -152,7 +152,7 @@ div.project {
 	width:256px;
 	vertical-align:top;
 	display: inline-block;
-	margin: 0px 20px 40px 0;
+	margin: 40px 20px 40px 0;
 }
 
 .project-img-container{

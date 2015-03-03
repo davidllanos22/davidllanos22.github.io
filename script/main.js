@@ -1,6 +1,4 @@
-
 /*--Hover Effect-*/
-
 
 $('.project').hover(function(){
 	$(this).css( 'cursor', 'pointer' );
@@ -13,21 +11,41 @@ $('.project').hover(function(){
 /*--On click events-*/
 
 $('.project-id-1').click(function(){
-	window.open("http://ludumdare.com/compo/minild-34/?action=preview&uid=10692", '_blank');
+	window.open("http://ludumdare.com/compo/ludum-dare-23/?action=preview&uid=10692", '_blank');
 });
 $('.project-id-2').click(function(){
-	window.open("http://ludumdare.com/compo/ludum-dare-24/?action=preview&uid=10692", '_blank');
+	window.open("http://ludumdare.com/compo/minild-34/?action=preview&uid=10692", '_blank');
 });
 $('.project-id-3').click(function(){
-	window.open("http://ludumdare.com/compo/ludum-dare-28/?action=preview&uid=10692", '_blank');
+	window.open("http://ludumdare.com/compo/minild-35/?action=preview&uid=10692", '_blank');
 });
 $('.project-id-4').click(function(){
-	window.open("http://ludumdare.com/compo/ludum-dare-29/?action=preview&uid=10692", '_blank');
+	window.open("http://ludumdare.com/compo/ludum-dare-24-warmup/?action=preview&uid=10692", '_blank');
 });
 $('.project-id-5').click(function(){
-	window.open("http://globalgamejam.org/2014/games/dragon-vs-princess", '_blank');
+	window.open("http://ludumdare.com/compo/ludum-dare-24/?action=preview&uid=10692", '_blank');
 });
-
+$('.project-id-6').click(function(){
+  window.open("http://ludumdare.com/compo/ludum-dare-25/?action=preview&uid=10692", '_blank');
+});
+$('.project-id-7').click(function(){
+  window.open("http://ludumdare.com/compo/ludum-dare-28/?action=preview&uid=10692", '_blank');
+});
+$('.project-id-8').click(function(){
+  window.open("http://ludumdare.com/compo/ludum-dare-29/?action=preview&uid=10692", '_blank');
+});
+$('.project-id-9').click(function(){
+  window.open("http://globalgamejam.org/2014/games/dragon-vs-princess", '_blank');
+});
+$('.project-id-10').click(function(){
+  window.open("http://ludumdare.com/compo/ludum-dare-31/?action=preview&uid=33989", '_blank');
+});
+$('.project-id-11').click(function(){
+  window.open("http://globalgamejam.org/2015/games/sheepdogs-arcade", '_blank');
+});
+$('.project-id-12').click(function(){
+  window.open("http://davidllanos22.itch.io/match-2", '_blank');
+});
 
 /*--Google Analytics-*/
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html>
 <head>
     <meta charset='utf-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,11 +7,8 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="icon" type="img/ico" href="media/favicon.ico">
 	<script src="script/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"></script>
-	<script src="https://code.angularjs.org/1.2.22/angular-route.min.js"></script>
 	<script src="script/app.js"></script>
 	<title>David Llanos</title>
-	<base href="/">
 </head>
 <body>
 <div id="container">
@@ -24,23 +21,107 @@
 		<section id="media">
 				<ul>
 					<li><a title="Twitter" target="_blank" href="https://twitter.com/davidllanos22"><img src="media/twitter.png"></a></li>
-					<li><a title="Email" href="mailto:davidllanos22@gmail.com"><img src="media/email.png"></a></li>
 					<li><a title="Github" target="_blank" href="https://github.com/davidllanos22"><img src="media/github.png"></a></li>
-				</ul>
+				  <li><a title="Itch.io" target="_blank" href="http://davidllanos22.itch.io/"><img src="media/itch-io.png"></a></li>
+          <li><a title="Email" href="mailto:davidllanos22@gmail.com"><img src="media/email.png"></a></li>
+        </ul>
 		</section>
-		<nav id="main-nav">
-			<ul>
-				<li><a title="Projects" href="/projects">PROJECTS</a></li>
-				<li><a title="About" href="/about">ABOUT</a></li>
-			</ul>
-		</nav>
 		<section id="working-on">
-			<b>Currently doing: </b>Preparing for <a href="http://www.ludumdare.com/compo/" target="_blank" title="Ludum Dare">#LDJAM</a>
 		</section>
     </header>
-    <section id="content" ng-view></section>
+    <section id="content">
+      <section id="section-projects">
+        <div id="projects-list">
+          <div class="project project-id-12">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/12.png');"></div>
+            </div>
+            <p class="project-title">Match 2</p>
+            <p class="project-description">A game made to test my engine. (2015)</p>
+          </div>
+          <div class="project project-id-11">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/11.png');"></div>
+            </div>
+            <p class="project-title">A Sheepdog's Arcade</p>
+            <p class="project-description">A game made for Global Game Jam 2015.</p>
+          </div>
+          <div class="project project-id-10">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/10.png');"></div>
+            </div>
+            <p class="project-title">Piano Racer</p>
+            <p class="project-description">A game made for Ludum Dare 31. (2014)</p>
+          </div>
+          <div class="project project-id-9">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/09.png');"></div>
+            </div>
+            <p class="project-title">Dragon vs Princess</p>
+            <p class="project-description">A game made for Global Game Jam 2014.</p>
+          </div>
+          <div class="project project-id-8">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/08.png');"></div>
+            </div>
+            <p class="project-title">Cave Beneath the Surface</p>
+            <p class="project-description">A game made for Ludum Dare 29. (2014)</p>
+          </div>
+          <div class="project project-id-7">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/07.png');"></div>
+            </div>
+            <p class="project-title">Balloon</p>
+            <p class="project-description">A game made for Ludum Dare 28.  (2013)</p>
+          </div>
+          <div class="project project-id-6">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/06.png');"></div>
+            </div>
+            <p class="project-title">Who is the villain?</p>
+            <p class="project-description">A game made for Ludum Dare 25. (2012)</p>
+          </div>
+          <div class="project project-id-5">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/05.png');"></div>
+            </div>
+            <p class="project-title">Caveman Evolution</p>
+            <p class="project-description">A game made for Ludum Dare 24. (2012)</p>
+          </div>
+          <div class="project project-id-4">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/04.png');"></div>
+            </div>
+            <p class="project-title">Island</p>
+            <p class="project-description">A game made for Ludum Dare 24(Warmup). (2012)</p>
+          </div>
+          <div class="project project-id-3">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/03.png');"></div>
+            </div>
+            <p class="project-title">I want this face!</p>
+            <p class="project-description">A game made for mini Ludum Dare 35. (2012)</p>
+          </div>
+          <div class="project project-id-2">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/02.png');"></div>
+            </div>
+            <p class="project-title">Zombie Dungeon</p>
+            <p class="project-description">A game made for mini Ludum Dare 34. (2012)</p>
+          </div>
+          <div class="project project-id-1">
+            <div class="project-img-container">
+              <div class="project-img" style="background: url('media/projects/01.png');"></div>
+            </div>
+            <p class="project-title">Save the tiny world!</p>
+            <p class="project-description">A game made for Ludum Dare 23. (2012)</p>
+          </div>
+        </div>
+      </section>
+<script src="script/main.js"></script>
+    </section>
     <footer id="footer">
-			<p>David Llanos 2014 - Powered by <a href="https://pages.github.com/">Github Pages</a></p>
+			<p>David Llanos - 2015</p>
     </footer>
 
 </div>
