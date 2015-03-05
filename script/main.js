@@ -46,6 +46,9 @@ $('.project-id-11').click(function(){
 $('.project-id-12').click(function(){
   window.open("http://davidllanos22.itch.io/match-2", '_blank');
 });
+$('.project-id-13').click(function(){
+  window.open("http://davidllanos22.itch.io/mines", '_blank');
+});
 
 /*--Google Analytics-*/
 
