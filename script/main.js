@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 function addMedia(name, url, imageName){
   $('#media ul').append("<li><a title=\"" + name + "\" target=\"_blank\" href=\"" + url + "\">"+
-                              "<img src=\"../media/" + imageName + ".png\"></a> </li>");
+                              "<img src=\"../media/img/" + imageName + ".png\"></a> </li>");
 }
 
 /*--Google Analytics-*/

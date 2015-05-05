@@ -37,7 +37,7 @@ function addProject(id, name, description, url){
   */
   $('#projects-list').prepend("<div class=\"project project-id-"+ id + "\">"+
                       "<div class=\"project-img-container\">"+
-                      "<div class=\"project-img\" style=\"background: url('media/projects/"+ id + ".png');\"></div>"+
+                      "<div class=\"project-img\" style=\"background: url('media/img/projects/"+ id + ".png');\"></div>"+
                       "</div>"+
                       "<p class=\"project-title\">" + name + "</p>"+
                       "<p class=\"project-description\">" + description + "</p>"+
