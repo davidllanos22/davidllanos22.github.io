@@ -1,18 +1,19 @@
 $(document).ready(function(){
   var id = getURLParameter("id");
+  var markdown = new Markdown.Converter();
   var n = 2;
   if(id){
-    readPost(id, function(text){
+    readPost(id, function(text, id){
       if(text == null)
         window.open("./", "_self");
       else
-        $("#content").append(markdown.toHTML(text))
+        $("#content").prepend("<div class='post'>" + markdown.makeHtml(text) + "</div>")
     }); 
 
   }else{
-    for(var i = n; i > 0; i--){
-      readPost(i, function(text){
-        if(text != null)$("#content").append(markdown.toHTML(text))
+    for(var i = 1; i < n + 1; i++){
+      readPost(i, function(text, id){
+        if(text != null)$("#content").prepend("<div class='post'><a href='./?id="+id+"'>" + markdown.makeHtml(text) + "</a></div>")
       }); 
     }
   }
@@ -24,9 +25,9 @@ function readPost(id, callback){
   req.onreadystatechange = function (e) {
     if (req.readyState == 4) {
       if(req.status == 200)
-        callback(req.responseText);
+        callback(req.responseText, id);
       else
-        callback(null);
+        callback(null, 0);
     }
   };
   req.send(null);

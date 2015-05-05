@@ -195,12 +195,21 @@ div.project {
 }
 
 .post{
-	width:80%;
+	width:90%;
 	margin: 20px auto;
-	color:#FFF;
 	background-color: #1E1E1E;
 	border-radius: 5px;
-	padding: 10px;
+	padding: 20px;
+}
+.post h1{
+	color:#fff;
+	margin-bottom:10px;
+}
+.post ul{
+	margin: 10px 0;
+}
+.post li{
+	margin-left: 20px;
 }
 
 .post-title{
