@@ -34,7 +34,7 @@ a{
 }
 
 a:hover{
-	color: #5090E8;
+	color: #fff;
 }
 
 #container{
@@ -64,9 +64,12 @@ a:hover{
 #portrait img{
 	border-radius:40px;
 }
-
+#tagline{
+	color: #555;
+}
 #main-nav{
 	margin-top: 10px;
+	margin-right: 10px;
 	text-align: center;
 }
 
