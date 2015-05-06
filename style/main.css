@@ -69,15 +69,15 @@ a:hover{
 }
 #main-nav{
 	margin-top: 10px;
-	margin-right: 10px;
+	margin-right: 26px;
 	text-align: center;
 }
 
 #main-nav li{
 	list-style: none;
 	display: inline;
-	padding-left: 10px;
-	font-size: 20px;
+	padding-left: 20px;
+	font-size: 26px;
 }
 
 #media{
@@ -209,7 +209,8 @@ div.project {
 	margin: 10px 0;
 }
 .post li{
-	margin-left: 20px;
+	margin-left: 10px;
+	list-style: inside square ;
 }
 
 .post-title{
@@ -238,6 +239,10 @@ div.project {
 	color: #fff;
 	/*background: #999;*/
 	font-size: 80%;
+}
+.post strong{
+	color: #AAA;
+	font-weight: bolder;
 }
 #disqus_thread{
 	margin-top: 30px;
