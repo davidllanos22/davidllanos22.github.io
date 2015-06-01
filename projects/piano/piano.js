@@ -1,4 +1,4 @@
-var game = new Game(640, 120, document.getElementById("piano"));
+var game = new Game(640, 240, document.getElementById("piano"));
 
 var white_key_width = 25;
 var white_key_height = 100;
@@ -6,7 +6,7 @@ var black_key_width = 15;
 var black_key_height = 60;
 
 var x_offset = 20;
-var y_offset = 10;
+var y_offset = 120;
 
 var scale_interval = white_key_width * 7;
 
@@ -17,14 +17,13 @@ var color = "#FFFF00";
 
 var actx = new AudioContext();
 var gain = actx.createGain();
-var osc = actx.createOscillator();
-osc.connect(gain);
 gain.connect(actx.destination);
-osc.type = "square";
-osc.start();
 gain.gain.value = 0;
 
 var pressed = false;
+var nodes = [];
+
+var lastFreq = 0;
 
 game.init = function(){
 	game.graphics.setClearColor("#ff00ff");
@@ -60,16 +59,15 @@ game.init = function(){
 			scale = Math.floor((i - 24) / 2);
 			if((i - 24) % 2 == 0) n = 1 + (scale * 12);
 			if((i - 24) % 2 == 1) n = 3 + (scale * 12);
-			console.log(n);
 		}else if(i < 41){
 			scale = Math.floor((i - 32) / 3);
 			if((i - 32) % 3 == 0) n = 6 + (scale * 12);
 			if((i - 32) % 3 == 1) n = 8 + (scale * 12);
 			if((i - 32) % 3 == 2) n = 10+ (scale * 12);
-			console.log(n);
 		}
 		keys[i].n = 440 * Math.pow(2, (-9 + n) / 12);
 	}
+
 }
 
 game.render = function(){
@@ -77,6 +75,8 @@ game.render = function(){
 		game.graphics.rect(keys[i].x - 1, keys[i].y - 1, keys[i].w + 2, keys[i].h + 2, "#000");
 		game.graphics.rect(keys[i].x, keys[i].y, keys[i].w, keys[i].h, keys[i].a ? color : keys[i].c);
 	}
+
+	game.graphics.rect(x_offset - 2, y_offset - 102, 24 * white_key_width + 4, y_offset - 8, "#000");
 }
 
 game.update = function(){
@@ -84,17 +84,39 @@ game.update = function(){
 	for(var i = 0; i < keys.length; i++){
 		keys[i].a = false;
 	}
+	if(game.input.mouseReleased(Mouse.LEFT)){
+		for (var i = 0; i < nodes.length; i++){
+			nodes[i].stop();
+			nodes[i].disconnect();
+			nodes.splice(j, 1);
+		}
+		lastFreq = 0;
+	}
+
 	if(game.input.mouseCheck(Mouse.LEFT)){
 		for(var i = 0; i < keys.length; i++){
 			if(rects[i].collides(new Rectangle(game.input.mouse().x, game.input.mouse().y, 1, 1))){
 				keys[keys.length - i - 1].a = true;
 				pressed = true;
-				osc.frequency.value = keys[keys.length - i - 1].n;
-				console.log(osc.frequency.value);
-				gain.gain.value = 1;
+				if(Math.abs(lastFreq - keys[keys.length - i - 1].n) > 0.1){
+					for (var j = 0; j < nodes.length; j++){
+						nodes[j].stop();
+						nodes[j].disconnect();
+						nodes.splice(j, 1);
+					}
+					var osc = actx.createOscillator();
+					osc.connect(gain);
+					osc.type = "square";
+					osc.frequency.value = keys[keys.length - i - 1].n;
+					lastFreq = osc.frequency.value;
+					osc.start();
+					gain.gain.value = 1;
+					nodes.push(osc);
+				}
 				return;
 			}
 		}
 	}
+
 	if(!pressed) gain.gain.value = 0;
 }
