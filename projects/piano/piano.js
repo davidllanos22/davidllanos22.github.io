@@ -22,6 +22,7 @@ gain.connect(actx.destination);
 var nodes = [];
 
 var lastFreq = 0;
+var lastNote = 0;
 var oscType = "square";
 
 var mouseRect = new Rectangle(game.input.mouse().x, game.input.mouse().y, 1, 1);
@@ -68,7 +69,7 @@ game.init = function(){
 			if((i - 32) % 3 == 1) n = 8 + (scale * 12);
 			if((i - 32) % 3 == 2) n = 10+ (scale * 12);
 		}
-		keys[i].n = 440 * Math.pow(2, (-9 + n) / 12);
+		keys[i].n = getFrequency(n);
 	}
 }
 
@@ -118,48 +119,63 @@ game.update = function(){
 	mouseRect.position.set(game.input.mouse().x, game.input.mouse().y);
 	pressed = false;
 	for(var i = 0; i < keys.length; i++){
-		keys[i].a = false;
+		//keys[i].a = false;
 	}
 
-	if(game.input.keyPressed(Keys.A)) addNode(261.6255653005986);
-	if(game.input.keyReleased(Keys.A)) removeNode(261.6255653005986);
-
-	if(game.input.keyPressed(Keys.S)) addNode(293.6647679174076);
-	if(game.input.keyReleased(Keys.S)) removeNode(293.6647679174076);
-
-	if(game.input.keyPressed(Keys.D)) addNode(329.6275569128699);
-	if(game.input.keyReleased(Keys.D)) removeNode(329.6275569128699);
-
-	if(game.input.keyPressed(Keys.F)) addNode(349.2282314330039);
-	if(game.input.keyReleased(Keys.F)) removeNode(349.2282314330039);
-
-	if(game.input.keyPressed(Keys.G)) addNode(391.99543598174927);
-	if(game.input.keyReleased(Keys.G)) removeNode(391.99543598174927);
-
-	if(game.input.keyPressed(Keys.H)) addNode(440);
-	if(game.input.keyReleased(Keys.H)) removeNode(440);
-
-	if(game.input.keyPressed(Keys.J)) addNode(493.8833012561241);
-	if(game.input.keyReleased(Keys.J)) removeNode(493.8833012561241);
+	keyboardNote(Keys.A, 0, 0);
+	keyboardNote(Keys.W, 1, 24);
+	keyboardNote(Keys.S, 2, 1);
+	keyboardNote(Keys.E, 3, 25);
+	keyboardNote(Keys.D, 4, 2);
+	keyboardNote(Keys.F, 5, 3);
+	keyboardNote(Keys.T, 6, 32);
+	keyboardNote(Keys.G, 7, 4);
+	keyboardNote(Keys.Y, 8, 33);
+	keyboardNote(Keys.H, 9, 5);
+	keyboardNote(Keys.U, 10, 34);
+	keyboardNote(Keys.J, 11, 6);
+	keyboardNote(Keys.K, 12, 7);
+	keyboardNote(Keys.O, 13, 26);
+	keyboardNote(Keys.L, 14, 8);
+	keyboardNote(Keys.P, 15, 27);
 
 	if(game.input.mouseCheck(Mouse.LEFT)){
 		for(var i = 0; i < keys.length; i++){
 			if(rects[i].collides(mouseRect)){
 				keys[keys.length - i - 1].a = true;
 				if(lastFreq != keys[keys.length - i - 1].n){
+					keys[lastNote].a = false;
 					removeNode(lastFreq);
 					lastFreq = keys[keys.length - i - 1].n;
 					addNode(lastFreq);
 				}
+				lastNote = keys.length - i - 1;
 				break;
 			}
 		}
 	}
+
 	if(game.input.mouseReleased(Mouse.LEFT)){
+		keys[lastNote].a = false;
 		removeNode(lastFreq);
 		lastFreq = 0;
 	}
 
+}
+
+function keyboardNote(keyCode, noteNumber, displayNumber){
+	if(game.input.keyPressed(keyCode)){
+		keys[displayNumber].a = true;
+		addNode(getFrequency(noteNumber));
+	} 
+	if(game.input.keyReleased(keyCode)){
+		keys[displayNumber].a = false;
+		removeNode(getFrequency(noteNumber));
+	}
+}
+
+function getFrequency(number){
+	return 440 * Math.pow(2, (-9 + number) / 12);
 }
 
 function removeNode(freq){
@@ -176,11 +192,10 @@ function removeNode(freq){
 }
 
 function addNode(freq){
-	var oscillator = actx.createOscillator();
-    oscillator.type = 'square';
-    oscillator.frequency.value = freq;
-    oscillator.connect(gain);
-    oscillator.start();
-
-    nodes.push(oscillator);
+	var osc = actx.createOscillator();
+    osc.type = 'square';
+    osc.frequency.value = freq;
+    osc.connect(gain);
+    osc.start();
+    nodes.push(osc);
 }
