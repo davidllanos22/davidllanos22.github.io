@@ -1,5 +1,8 @@
 var game = new Game(640, 240, document.getElementById("piano"));
 
+var waveforms = game.loader.loadImage("waveforms.png");
+var gui = game.loader.loadImage("gui.png");
+
 var white_key_width = 25;
 var white_key_height = 100;
 var black_key_width = 15;
@@ -23,13 +26,21 @@ var nodes = [];
 
 var lastFreq = 0;
 var lastNote = 0;
+
+var wavesButtons = [];
 var oscType = "square";
+var oscSelected = 0;
 
 var mouseRect = new Rectangle(game.input.mouse().x, game.input.mouse().y, 1, 1);
 
 
 
 game.init = function(){
+	wavesButtons.push(new Rectangle(40, 30, 20, 20));
+	wavesButtons.push(new Rectangle(70, 30, 20, 20));
+	wavesButtons.push(new Rectangle(100, 30, 20, 20));
+	wavesButtons.push(new Rectangle(130, 30, 20, 20));
+
 	game.graphics.setClearColor("#3b7bb3");
 	// whites
 	for(var x = 0; x < 24; x++)
@@ -80,39 +91,15 @@ game.render = function(){
 	}
 
 	game.graphics.rect(x_offset - 2, y_offset - 102, 24 * white_key_width + 4, y_offset - 8, "#000");
-	//drawSquare(100, 50);
-	//drawSaw(150, 50);
-	//drawTriangle(200, 50);
-	//drawSine(250, 50);
-}
 
-function drawSquare(x, y){
-	var h = 10;
-	game.graphics.line(x, y, x, y - h, "#FFF");
-	game.graphics.line(x, y - h, x + h, y - h, "#FFF");
-	game.graphics.line(x + h, y - h, x + h, y, "#FFF");
-	game.graphics.line(x + h, y, x + h * 2, y, "#FFF");
-	game.graphics.line(x + h * 2, y, x + h * 2, y - h, "#FFF");
-}
+	game.graphics.imageSection(waveforms, 40, 30, 0, 0, 20, 20, 20, 20);
+	game.graphics.imageSection(waveforms, 70, 30, 1, 0, 20, 20, 20, 20);
+	game.graphics.imageSection(waveforms, 100, 30, 0, 1, 20, 20, 20, 20);
+	game.graphics.imageSection(waveforms, 130, 30, 1, 1, 20, 20, 20, 20);
 
-function drawSaw(x, y){
-	var h = 10;
-	game.graphics.line(x, y, x, y - h, "#FFF");
-	game.graphics.line(x, y - h, x + h * 2, y, "#FFF");
-}
+	game.graphics.imageSection(gui, 40 + oscSelected* 30, 60, 0, 0, 16, 16, 16, 16);
 
-function drawTriangle(x, y){
-	var h = 10;
-	game.graphics.line(x, y - h / 2, x + h / 2, y - h, "#FFF");
-	game.graphics.line(x + h / 2, y - h, x + h + h / 2, y, "#FFF");
-	game.graphics.line(x + h + h / 2, y, x + h * 2, y - h / 2, "#FFF");
-}
 
-function drawSine(x, y){
-	var h = 10;
-	for(var i = 0; i < h * 2; i++){
-		game.graphics.point(x + i, (Math.cos((i*5)/20) * 20) + y, "#FFF");
-	}
 }
 
 game.update = function(){
@@ -155,6 +142,18 @@ game.update = function(){
 		}
 	}
 
+	if(game.input.mousePressed(Mouse.LEFT)){
+		for(var i = 0; i < wavesButtons.length; i++){
+			if(wavesButtons[i].collides(mouseRect)){
+				oscSelected = i;
+				if(i == 0) oscType = "square";
+				else if(i == 1) oscType = "sine";
+				else if(i == 2) oscType = "sawtooth";
+				else if(i == 3) oscType = "triangle";
+			}
+		}
+	}
+
 	if(game.input.mouseReleased(Mouse.LEFT)){
 		keys[lastNote].a = false;
 		removeNode(lastFreq);
@@ -193,7 +192,7 @@ function removeNode(freq){
 
 function addNode(freq){
 	var osc = actx.createOscillator();
-    osc.type = 'square';
+    osc.type = oscType;
     osc.frequency.value = freq;
     osc.connect(gain);
     osc.start();
