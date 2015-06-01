@@ -18,13 +18,15 @@ var color = "#FFFF00";
 var actx = new AudioContext();
 var gain = actx.createGain();
 gain.connect(actx.destination);
-gain.gain.value = 0;
 
-var pressed = false;
 var nodes = [];
 
 var lastFreq = 0;
 var oscType = "square";
+
+var mouseRect = new Rectangle(game.input.mouse().x, game.input.mouse().y, 1, 1);
+
+
 
 game.init = function(){
 	game.graphics.setClearColor("#3b7bb3");
@@ -68,7 +70,6 @@ game.init = function(){
 		}
 		keys[i].n = 440 * Math.pow(2, (-9 + n) / 12);
 	}
-
 }
 
 game.render = function(){
@@ -78,9 +79,9 @@ game.render = function(){
 	}
 
 	game.graphics.rect(x_offset - 2, y_offset - 102, 24 * white_key_width + 4, y_offset - 8, "#000");
-	drawSquare(100, 50);
-	drawSaw(150, 50);
-	drawTriangle(200, 50);
+	//drawSquare(100, 50);
+	//drawSaw(150, 50);
+	//drawTriangle(200, 50);
 	//drawSine(250, 50);
 }
 
@@ -92,17 +93,20 @@ function drawSquare(x, y){
 	game.graphics.line(x + h, y, x + h * 2, y, "#FFF");
 	game.graphics.line(x + h * 2, y, x + h * 2, y - h, "#FFF");
 }
+
 function drawSaw(x, y){
 	var h = 10;
 	game.graphics.line(x, y, x, y - h, "#FFF");
 	game.graphics.line(x, y - h, x + h * 2, y, "#FFF");
 }
+
 function drawTriangle(x, y){
 	var h = 10;
 	game.graphics.line(x, y - h / 2, x + h / 2, y - h, "#FFF");
 	game.graphics.line(x + h / 2, y - h, x + h + h / 2, y, "#FFF");
 	game.graphics.line(x + h + h / 2, y, x + h * 2, y - h / 2, "#FFF");
 }
+
 function drawSine(x, y){
 	var h = 10;
 	for(var i = 0; i < h * 2; i++){
@@ -111,43 +115,72 @@ function drawSine(x, y){
 }
 
 game.update = function(){
+	mouseRect.position.set(game.input.mouse().x, game.input.mouse().y);
 	pressed = false;
 	for(var i = 0; i < keys.length; i++){
 		keys[i].a = false;
 	}
-	if(game.input.mouseReleased(Mouse.LEFT)){
-		for (var i = 0; i < nodes.length; i++){
-			nodes[i].stop();
-			nodes[i].disconnect();
-			nodes.splice(j, 1);
-		}
-		lastFreq = 0;
-	}
+
+	if(game.input.keyPressed(Keys.A)) addNode(261.6255653005986);
+	if(game.input.keyReleased(Keys.A)) removeNode(261.6255653005986);
+
+	if(game.input.keyPressed(Keys.S)) addNode(293.6647679174076);
+	if(game.input.keyReleased(Keys.S)) removeNode(293.6647679174076);
+
+	if(game.input.keyPressed(Keys.D)) addNode(329.6275569128699);
+	if(game.input.keyReleased(Keys.D)) removeNode(329.6275569128699);
+
+	if(game.input.keyPressed(Keys.F)) addNode(349.2282314330039);
+	if(game.input.keyReleased(Keys.F)) removeNode(349.2282314330039);
+
+	if(game.input.keyPressed(Keys.G)) addNode(391.99543598174927);
+	if(game.input.keyReleased(Keys.G)) removeNode(391.99543598174927);
+
+	if(game.input.keyPressed(Keys.H)) addNode(440);
+	if(game.input.keyReleased(Keys.H)) removeNode(440);
+
+	if(game.input.keyPressed(Keys.J)) addNode(493.8833012561241);
+	if(game.input.keyReleased(Keys.J)) removeNode(493.8833012561241);
 
 	if(game.input.mouseCheck(Mouse.LEFT)){
 		for(var i = 0; i < keys.length; i++){
-			if(rects[i].collides(new Rectangle(game.input.mouse().x, game.input.mouse().y, 1, 1))){
+			if(rects[i].collides(mouseRect)){
 				keys[keys.length - i - 1].a = true;
-				pressed = true;
-				if(Math.abs(lastFreq - keys[keys.length - i - 1].n) > 0.1){
-					for (var j = 0; j < nodes.length; j++){
-						nodes[j].stop();
-						nodes[j].disconnect();
-						nodes.splice(j, 1);
-					}
-					var osc = actx.createOscillator();
-					osc.connect(gain);
-					osc.type = oscType;
-					osc.frequency.value = keys[keys.length - i - 1].n;
-					lastFreq = osc.frequency.value;
-					osc.start();
-					gain.gain.value = 1;
-					nodes.push(osc);
+				if(lastFreq != keys[keys.length - i - 1].n){
+					removeNode(lastFreq);
+					lastFreq = keys[keys.length - i - 1].n;
+					addNode(lastFreq);
 				}
-				return;
+				break;
 			}
 		}
 	}
+	if(game.input.mouseReleased(Mouse.LEFT)){
+		removeNode(lastFreq);
+		lastFreq = 0;
+	}
 
-	if(!pressed) gain.gain.value = 0;
+}
+
+function removeNode(freq){
+	var new_nodes = [];
+    for (var i = 0; i < nodes.length; i++) {
+        if (Math.round(nodes[i].frequency.value) === Math.round(freq)) {
+            nodes[i].stop();
+            nodes[i].disconnect();
+        } else {
+            new_nodes.push(nodes[i]);
+        }
+    }
+    nodes = new_nodes;
+}
+
+function addNode(freq){
+	var oscillator = actx.createOscillator();
+    oscillator.type = 'square';
+    oscillator.frequency.value = freq;
+    oscillator.connect(gain);
+    oscillator.start();
+
+    nodes.push(oscillator);
 }
