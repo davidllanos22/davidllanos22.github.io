@@ -20,6 +20,7 @@ var color = "#FFFF00";
 
 var actx = new AudioContext();
 var gain = actx.createGain();
+gain.gain.value = 0.05;
 gain.connect(actx.destination);
 
 var nodes = [];
@@ -196,5 +197,14 @@ function addNode(freq){
     osc.frequency.value = freq;
     osc.connect(gain);
     osc.start();
+
+    var osc2 = actx.createOscillator();
+    osc2.type = oscType;
+    osc2.frequency.value = freq;
+    osc.detune.value = 20;
+    osc2.connect(gain);
+    osc2.start();
+
     nodes.push(osc);
+    nodes.push(osc2);
 }
