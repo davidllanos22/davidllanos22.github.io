@@ -24,9 +24,10 @@ var pressed = false;
 var nodes = [];
 
 var lastFreq = 0;
+var oscType = "square";
 
 game.init = function(){
-	game.graphics.setClearColor("#ff00ff");
+	game.graphics.setClearColor("#3b7bb3");
 	// whites
 	for(var x = 0; x < 24; x++)
 		keys.push({x: (x_offset + x * white_key_width) -1, y: y_offset - 1, w: white_key_width + 2, h: white_key_height + 2, n: 0, c: "#FFF", a: false});
@@ -77,6 +78,36 @@ game.render = function(){
 	}
 
 	game.graphics.rect(x_offset - 2, y_offset - 102, 24 * white_key_width + 4, y_offset - 8, "#000");
+	drawSquare(100, 50);
+	drawSaw(150, 50);
+	drawTriangle(200, 50);
+	//drawSine(250, 50);
+}
+
+function drawSquare(x, y){
+	var h = 10;
+	game.graphics.line(x, y, x, y - h, "#FFF");
+	game.graphics.line(x, y - h, x + h, y - h, "#FFF");
+	game.graphics.line(x + h, y - h, x + h, y, "#FFF");
+	game.graphics.line(x + h, y, x + h * 2, y, "#FFF");
+	game.graphics.line(x + h * 2, y, x + h * 2, y - h, "#FFF");
+}
+function drawSaw(x, y){
+	var h = 10;
+	game.graphics.line(x, y, x, y - h, "#FFF");
+	game.graphics.line(x, y - h, x + h * 2, y, "#FFF");
+}
+function drawTriangle(x, y){
+	var h = 10;
+	game.graphics.line(x, y - h / 2, x + h / 2, y - h, "#FFF");
+	game.graphics.line(x + h / 2, y - h, x + h + h / 2, y, "#FFF");
+	game.graphics.line(x + h + h / 2, y, x + h * 2, y - h / 2, "#FFF");
+}
+function drawSine(x, y){
+	var h = 10;
+	for(var i = 0; i < h * 2; i++){
+		game.graphics.point(x + i, (Math.cos((i*5)/20) * 20) + y, "#FFF");
+	}
 }
 
 game.update = function(){
@@ -106,7 +137,7 @@ game.update = function(){
 					}
 					var osc = actx.createOscillator();
 					osc.connect(gain);
-					osc.type = "square";
+					osc.type = oscType;
 					osc.frequency.value = keys[keys.length - i - 1].n;
 					lastFreq = osc.frequency.value;
 					osc.start();
