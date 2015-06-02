@@ -26,7 +26,7 @@ $(document).ready(function(){
   }else{
     for(var i = 1; i < totalPosts + 1; i++){
       readPost(i, function(text, id){
-        if(text != null)$("#content").prepend("<div class='post'><a href='./?id="+id+"'>" + markdown.makeHtml(text) + "</a><br><a class='post-more' href='./?id=" + id + "#disqus_thread'>Read Comments (0)<div class='disqus-comment-count' data-disqus-url='./?id=" + id +"'></div></a></div>");
+        if(text != null)$("#content").prepend("<div class='post'><a href='./?id="+id+"'>" + markdown.makeHtml(text) + "</a><br><a class='post-more' href='./?id=" + id + "'>Read Comments (0)<div class='disqus-comment-count' data-disqus-url='./?id=" + id +"'></div></a></div>");
 
       }); 
     }

@@ -98,9 +98,7 @@ game.render = function(){
 	game.graphics.imageSection(waveforms, 100, 30, 0, 1, 20, 20, 20, 20);
 	game.graphics.imageSection(waveforms, 130, 30, 1, 1, 20, 20, 20, 20);
 
-	game.graphics.imageSection(gui, 40 + oscSelected* 30, 60, 0, 0, 16, 16, 16, 16);
-
-
+	game.graphics.imageSection(gui, 40 + oscSelected * 30, 60, 0, 0, 16, 16, 16, 16);
 }
 
 game.update = function(){
