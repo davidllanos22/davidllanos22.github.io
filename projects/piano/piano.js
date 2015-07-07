@@ -84,7 +84,7 @@ game.init = function(){
 		keys[i].n = getFrequency(n);
 	}
 }
-
+var t= 0;
 game.render = function(){
 	for(var i = 0; i < keys.length; i++){
 		game.graphics.rect(keys[i].x - 1, keys[i].y - 1, keys[i].w + 2, keys[i].h + 2, "#000");
@@ -99,9 +99,11 @@ game.render = function(){
 	game.graphics.imageSection(waveforms, 130, 30, 1, 1, 20, 20, 20, 20);
 
 	game.graphics.imageSection(gui, 40 + oscSelected * 30, 60, 0, 0, 16, 16, 16, 16);
+	game.graphics.imageSectionRot(gui, 40, 120, 1, 0, 32, 32, 32, 32, t);
 }
 
 game.update = function(){
+	t+=0.01;
 	mouseRect.position.set(game.input.mouse().x, game.input.mouse().y);
 	pressed = false;
 	for(var i = 0; i < keys.length; i++){
