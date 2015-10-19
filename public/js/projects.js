@@ -15,25 +15,20 @@ $(document).ready(function(){
 
   /*--Hover Effect-*/
 
-  $('.project').hover(function(){
-    $(this).css( 'cursor', 'pointer' );
-    $(this).find('.project-img').stop(true, true).fadeTo(300, 0.5);
+  $('.project-img').hover(function(){
+    $(this).stop(true, true).fadeTo(300, 0.5);
   }, function(){
-    $(this).css( 'cursor', 'default' );
-    $(this).find('.project-img').stop(true, true).fadeTo(200, 1);
+    $(this).stop(true, true).fadeTo(300, 1);
   });
 
 });
 
 function addProject(id, name, description, url){
-  $('#projects-list').prepend("<div class=\"project project-id-"+ id + "\">"+
+  $('#projects-list').prepend("<a href=\""+ url +"\" target=\"_blank\"><div class=\"project project-id-"+ id + "\">"+
                       "<div class=\"project-img-container\">"+
-                      "<div class=\"project-img\" style=\"background: url('media/img/projects/"+ id + ".png');\"></div>"+
+                      "<div class=\"project-img\" style=\"background: url('public/media/img/projects/"+ id + ".png');\"></div>"+
                       "</div>"+
                       "<p class=\"project-title\">" + name + "</p>"+
                       "<p class=\"project-description\">" + description + "</p>"+
-                      "</div>");
-  $('.project-id-' + id).click(function(){
-    window.open(url, '_blank');
-  });
+                      "</div></a>");
 }
