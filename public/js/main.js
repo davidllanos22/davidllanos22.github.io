@@ -4,6 +4,7 @@ $(document).ready(function(){
   addMedia("LinkedIn", "https://www.linkedin.com/in/davidllanos22", "linkedin");
   addMedia("Itch.io", "http://davidllanos22.itch.io/", "itch-io");
   addMedia("Email", "mailto:davidllanos22@gmail.com", "email");
+  addMedia("Curriculum Vitae", "/CV", "cv");
 });
 
 function addMedia(name, url, imageName){
