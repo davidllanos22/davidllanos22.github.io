@@ -3,7 +3,7 @@ html{
 }
 
 body{
-	background-color:#3b7bb3 ;
+	background-color:#216586;
 	color: #888;
 	height: 100%;
 }
@@ -48,6 +48,7 @@ a:hover{
 
 #portrait img{
 	border-radius:40px;
+	image-rendering: pixelated;
 }
 #tagline{
 	color: #555;
@@ -125,7 +126,7 @@ div.project {
 }
 
 .project-title{
-	color: #5090E8;
+	color: #216586;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	font-size: 18px;
