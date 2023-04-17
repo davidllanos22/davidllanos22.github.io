@@ -118,6 +118,10 @@ button{
   opacity: 50%;
 }
 
+.text-center{
+  text-align: center;
+}
+
 /* .transition-none *{
   transition: none !important;
 } */
