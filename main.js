@@ -1,7 +1,26 @@
-document.addEventListener("DOMContentLoaded",()=>{
-  let node = document.querySelector(".transition-none");
-  node.classList.remove("transition-none");
+const resizeObserver = new ResizeObserver((entries) => {
+  let cvs = entries[0].target;
+  let ctx = cvs.getContext("2d");
+  cvs.width = cvs.clientWidth;
+  cvs.height = cvs.clientHeight;
+
+  for(let i = 0; i < 100; i++){
+    let x = Math.random() * cvs.width;
+    let y = Math.random() * cvs.height;
+
+    fillRect(ctx, x, y, 1, 1, "white");
+  }
 });
+
+document.addEventListener("DOMContentLoaded",()=>{
+  let cvs = document.querySelector("#cvs");
+  resizeObserver.observe(cvs);
+});
+
+function fillRect(ctx, x, y, w, h, color){
+  ctx.fillStyle = color;
+  ctx.fillRect(x, y, w, h);
+}
 
 let currentTheme = "dark";
 

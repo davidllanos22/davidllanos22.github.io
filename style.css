@@ -68,7 +68,7 @@ h1, h2{
 }
 
 .icon:hover{
-  opacity: 70%;
+  opacity: 50%;
 }
 
 .gap-1{
@@ -108,6 +108,14 @@ button{
   position: fixed;
   top: 0;
   right: 0;
+}
+
+.position-relative{
+  position: relative;
+}
+
+.opacity-50{
+  opacity: 50%;
 }
 
 /* .transition-none *{
