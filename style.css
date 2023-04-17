@@ -120,6 +120,14 @@ button{
   text-align: center;
 }
 
+.pointer-events-none{
+  pointer-events: none;
+}
+
+.pointer-events-all{
+  pointer-events: all;
+}
+
 /* .transition-none *{
   transition: none !important;
 } */
