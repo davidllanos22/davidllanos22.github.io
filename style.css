@@ -1,8 +1,6 @@
 :root{
-  --color-light: white;
-  --color-dark: black;
-  --color-bg: var(--color-dark);
-  --color-fg: var(--color-light);
+  --color-bg: black;
+  --color-fg: white;
 }
 
 .w-100{
