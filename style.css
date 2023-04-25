@@ -1,6 +1,7 @@
 :root{
   --color-bg: black;
   --color-fg: white;
+  --bs-body-font-family: "Avenir Next";
 }
 
 .bg{
@@ -9,7 +10,6 @@
 
 h1, h2, h3, h4{
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
   color: var(--color-fg);
 }
 
